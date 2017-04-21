@@ -1,6 +1,6 @@
-title: Material Card
-description: Material Card blog built with Jekyll
-url: "127.0.0.1:4000" # the base hostname & protocol for your site
+title: Otro blog de Francisco Estrada
+description: Blog con experimentos realizados en Github
+# url: "127.0.0.1:4000" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
