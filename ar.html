@@ -10,14 +10,14 @@
 <body style='margin : 0px; overflow: hidden;'>
 	<a-scene embedded artoolkit='sourceType: webcam;'>
   <a-assets>
-  <!-- Un árbol     
+  <!-- Un árbol  -->   
     <a-asset-item id="arbol-obj" src="arbol.obj"></a-asset-item>
     <a-asset-item id="arbol-mtl" src="arbol.mtl"></a-asset-item>
--->
-  <!-- Una caperuza  
+
+  <!-- Una caperuza  -->
       <a-asset-item id="caperuza-obj" src="caperuza-ch.obj"></a-asset-item>
     <a-asset-item id="caperuza-mtl" src="caperuza-ch.mtl"></a-asset-item> 
--->
+
      
 <!-- Una caperuza en formato ply-->
  <a-asset-item id="modeloPly" src="caperuza-ch.ply"></a-asset-item> 
@@ -31,13 +31,13 @@
    <a-entity obj-model="obj: #caperuza-obj; mtl: #caperuza-mtl"  scale=".08 .08 .08" position="-0.5 0 -0.5"></a-entity>       
    -->  
       
- <!-- Modelo de caperuza en formato ply-->
+ <!-- Modelo de caperuza en formato ply
       
      <a-entity ply-model="src: #modeloPly" rotation="-90 30 0" scale="0.4 0.4 0.4" position="0 0 -5"></a-entity>
-      
-<!--
+ -->     
+<!---->
   <a-entity obj-model="obj: #arbol-obj; mtl: #arbol-mtl"  scale=".08 .08 .08" position="-0.5 0 -0.5"></a-entity>  
--->
+
 		<a-marker-camera preset='hiro'></a-marker-camera>
 	</a-scene>  
 </body>
