@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Realidad Aumentada</title>
-      <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="js/aframe-extras.loaders.min.js"></script>
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
 	<a-scene embedded artoolkit='sourceType: webcam;'>
   <a-assets>
   <!-- Un árbol  -->   
-    <a-asset-item id="arbol-obj" src="arbol.obj"></a-asset-item>
-    <a-asset-item id="arbol-mtl" src="arbol.mtl"></a-asset-item>
+    <a-asset-item id="arbol-obj" src="modelos3d/arbol.obj"></a-asset-item>
+    <a-asset-item id="arbol-mtl" src="modelos3d/arbol.mtl"></a-asset-item>
 
   <!-- Una caperuza  -->
-      <a-asset-item id="caperuza-obj" src="caperuza-ch.obj"></a-asset-item>
-    <a-asset-item id="caperuza-mtl" src="caperuza-ch.mtl"></a-asset-item> 
+      <a-asset-item id="caperuza-obj" src="modelos3d/caperuza-ch.obj"></a-asset-item>
+    <a-asset-item id="caperuza-mtl" src="modelos3d/caperuza-ch.mtl"></a-asset-item> 
 
      
 <!-- Una caperuza en formato ply-->
- <a-asset-item id="modeloPly" src="caperuza.ply"></a-asset-item> 
+ <a-asset-item id="modeloPly" src="modelos3d/caperuza.ply"></a-asset-item> 
      
   </a-assets>
 
@@ -33,7 +34,7 @@
       
  <!-- Modelo de caperuza en formato ply  --> 
       
-     <a-entity ply-model="src: #modeloPly" rotation="-90 30 0" scale="0.2 0.2 0.2" position="0 0 -5"></a-entity>
+     <a-entity ply-model="src: #modeloPly" rotation="-90 30 0" scale=".1 .1 .1" position="0 0 -5"></a-entity>
     
 <!--
   <a-entity obj-model="obj: #arbol-obj; mtl: #arbol-mtl"  scale=".08 .08 .08" position="-0.5 0 -0.5" rotation="0 0 0"></a-entity>  
