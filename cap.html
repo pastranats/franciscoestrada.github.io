@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>A-Frame Mayo del 2017</title>
+     <script src="js/aframe.min.js"></script> 
+	 <script src="js/aframe-extras.loaders.min.js"></script>
+</head>
+<body>
+<!-- El espacio virtual está contenido dentro de <a-scene> -->
+<a-scene>
+ 
+ <!-- En <a-assets> se precargan los elementos de la escena -->
+  <a-assets>
+    <img id="texturaCubo" src="imagen/piedras.jpg">
+    <img id="TexturaPiso" src="imagen/grass.jpg">
+    <img id="texturaCielo" src="imagen/nubes.jpg">
+    <a-asset-item id="arbol-obj" src="modelos3d/arbol.obj"></a-asset-item>
+    <a-asset-item id="arbol-mtl" src="modelos3d/arbol.mtl"></a-asset-item>
+	 <a-asset-item id="modeloPly" src="modelos3d/caperuza-ch.ply"></a-asset-item> 	 
+	  <a-asset-item id="modeloUno" src="modelos3d/uno.json"></a-asset-item>  
+  </a-assets>
+  
+  <!-- Una semiesfera para el cielo, luces ambientales y puntuales, un plano -->
+  <a-sky height="2048" radius="30" src="#texturaCielo" theta-length="90" width="2048"></a-sky>
+  <a-light type="ambient" color="#445451"></a-light>
+  <a-light type="point" intensity="0.5" position="2 10 4"></a-light>
+  <a-plane src="#TexturaPiso" rotation="-90 0 0" height="100" width="100"></a-plane>
+  
+  <!-- Agregando una frase -->
+  <a-text value="One day, Red went to feed her grandmom" color="red"
+          position="3 2 -6" scale="1.5 1.5 1.5" rotation="0 -90 0"></a-text>
+
+<!-- Modelo 3D en formato JSON, animado -->	
+ <a-entity position="5 0 0">	  
+      <a-entity scale="0.025 0.025 0.025"
+                animation-mixer="clip: *;"
+                json-model="src: url(modelos3d/wolf.json);">
+		</a-entity>	
+   <a-animation attribute="position" from="5 0 -30" to="0 0 30" dur="20000" repeat="indefinite"></a-animation>	
+      </a-entity>  		  
+		  
+<!-- Modelo 3d en formato ply -->
+          
+	<a-entity ply-model="src: #modeloPly" rotation="-90 15 0" scale=".1 .1 .1">
+ <a-animation attribute="position" from="-5 -0.5 -20" to="-5 0 35" dur="40000" repeat="indefinite"></a-animation>	
+	</a-entity>
+		  
+<!-- Modelo 3d en formato .obj -->  
+
+	<a-entity obj-model="obj: #arbol-obj; mtl: #arbol-mtl"  position="2 -.2 10" scale=".4 .4 .4"></a-entity>
+  
+<!-- Y muchas copias...           -->
+  
+	<a-entity obj-model="obj: #arbol-obj; mtl: #arbol-mtl"  position="8.2 -.2 10" scale=".4 .4 .4"></a-entity> 
+	<a-entity obj-model="obj: #arbol-obj; mtl: #arbol-mtl"  position="14.4 -.2 10" scale=".4 .4 .4"></a-entity>
+	<a-entity obj-model="obj: #arbol-obj; mtl: #arbol-mtl"  position="20.6 -.2 10" scale=".4 .4 .4"></a-entity>
+	<a-entity obj-model="obj: #arbol-obj; mtl: #arbol-mtl"  position="-4.4 -.2 10" scale=".4 .4 .4"></a-entity>
+	<a-entity obj-model="obj: #arbol-obj; mtl: #arbol-mtl"  position="-10.8 -.2 10" scale=".4 .4 .4"></a-entity>
+	<a-entity obj-model="obj: #arbol-obj; mtl: #arbol-mtl"  position="-17.2 -.2 10" scale=".4 .4 .4"></a-entity>
+  
+      
+  <!-- La cámara -->
+  <a-camera>
+    <a-cursor color="#FAFAFA" />
+  </a-camera>
+</a-scene>   
+</body>
+</html>
