@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Modelo 3D con movimiento circular</title>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/v0.1.14/dist/aframe-orbit-controls-component.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="tibu-gltf" src="modelos3d/hammer.glb"></a-asset-item>
+        </a-assets>
+
+        <a-entity environment="preset: egypt; dressingAmount:0; ground: canyon; groundYScale: 10;"></a-entity>
+
+        <a-light type="hemisphere" color="bbb" position="0 20 0" intensity="2"></a-light>
+
+        <a-entity>
+            <a-entity position="25 1 0" rotation="0 -90 0" gltf-model="#tibu-gltf" animation-mixer="clip: *;"></a-entity>
+            <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" repeat="indefinite"></a-animation>
+        </a-entity>
+
+        <a-entity id="camera" camera="fov: 80; zoom: 1;" position="-30 20 10" orbit-controls="
+          autoRotate: false;
+          target: #target;
+          enableDamping: true;
+          dampingFactor: 0.125;
+          rotateSpeed:0.25;
+          minDistance:3;
+          maxDistance:100;
+              " mouse-cursor="">
+        </a-entity>
+
+        <a-entity id="target" position="0 10 0">
+        </a-entity>
+        <a-sphere color="white" radius="0.01" position="-1.7 16 -2.2"></a-sphere>
+        </a-entity>
+    </a-scene>
+</body>
+</html>
