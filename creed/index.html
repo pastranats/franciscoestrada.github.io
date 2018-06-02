@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <title>Modelos 3D con animación en A-Frame</title>
+<!--    Biblioteca en JavaScript de realidad aumentada: 
+        https://aframe.io -->
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+	
+<!--  Generación por procedimientos (procedimental en español o 'procedural', en inglés) de escenarios 3D. Para info sobre parámetros, ir al sitio del programador:    https://github.com/feiss/aframe-environment-component    -->	
+	 <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+	 
+<!-- Extensión que permite, entre otras cosas, reproducir animación en A_Frame: 
+     https://github.com/donmccurdy/aframe-extras -->	 
+	 <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.1/dist/aframe-extras.min.js"></script>
+	 
+	<!--   Extensión para colocar en el escenario una cámara orbital. Para conocer más parámetros, consultar el sitio del programador.: 
+       https://github.com/tizzle/aframe-orbit-controls-component --> 
+    <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/v0.1.14/dist/aframe-orbit-controls-component.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+		<a-assets>
+			<a-asset-item id="casa" src="modelos3d/model.dae"></a-asset-item>
+			
+<!--        Modelo animado en Mixamo (https://www.mixamo.com) -->			
+            <a-asset-item id="war" src="modelos3d/idle.glb"></a-asset-item>
+		</a-assets>
+		
+<!-- Escenario procedimental 3D. Para info sobre parámetros, ir al sitio del programador -->		
+		 <a-entity environment="preset: egypt; dressingAmount: 1; position: 250 0 0; dressingScale: 40; seed: 3;"></a-entity>
+		 <a-light type="ambient" color="bbb" position="0 20 0 rotation="0 25 65"></a-light>
+		 <a-entity gltf-model="#war" scale="10 10 10" animation-mixer="clip: *;"></a-entity>
+		 
+		 <a-collada-model src="#casa"  scale="10 10 10" position="45 -0.8 10" rotation="0 90 0"></a-collada-model>
+
+		 <a-entity
+          id="camera"
+          camera="fov: 80; zoom: 1;"
+          position="0 15 25"
+          orbit-controls="
+          autoRotate: false;
+          target: #target;
+          enableDamping: true;
+          dampingFactor: 0.125;
+          rotateSpeed:0.25;
+          minDistance:3;
+          maxDistance:100;
+              "
+          mouse-cursor="">
+		</a-entity>	
+
+<!--La cámara requiere un objeto 3D al cual apuntar, un 'target'. Para que no apuntara a los pies del modelo, agregué una esfera, y la coloqué a la altura de la cara del personaje. 	-->		
+		<a-entity id="target" position="0 16 0">
+			<a-sphere color="white" radius="0.01" position="0 16 0"></a-sphere>		
+		</a-entity>
+    </a-scene>
+</body>
+</html>
